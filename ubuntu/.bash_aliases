@@ -202,7 +202,7 @@ mkcd () {
 # create repo on github using MVC design pattern
 mvcrepo() {
     NAME=$1
-    gh repo create $NAME
+    gh repo create $NAME --private
     git clone git@github.com:seve-andre/$NAME.git
     cd $NAME
     echo "# $NAME" >> README.md
@@ -220,10 +220,24 @@ mvcrepo() {
     git push -u origin main
 }
 
-# creates simple repo with README only
-srepo() {
+# creates private repo with README only
+new-priv-repo() {
     NAME=$1
-    gh repo create $NAME
+    gh repo create $NAME --private
+    git clone git@github.com:seve-andre/$NAME.git $NAME
+    cd $NAME
+    echo "# $NAME" >> README.md
+    git add README.md
+    git commit -m "initial commit"
+    git branch -M main
+    git remote set-url origin git@github.com:seve-andre/$NAME.git
+    git push -u origin main
+}
+
+# creates public repo with README only
+new-pub-repo() {
+    NAME=$1
+    gh repo create $NAME --public
     git clone git@github.com:seve-andre/$NAME.git $NAME
     cd $NAME
     echo "# $NAME" >> README.md
