@@ -258,3 +258,4 @@ jfx() {
 # gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
 
 # systemd-analyze
+alias code="flatpak run com.visualstudio.code"
