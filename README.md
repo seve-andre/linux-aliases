@@ -1,2 +1,2 @@
-# linux-bash-aliases
-My Linux bash aliases
+# Linux aliases
+My Linux aliases
